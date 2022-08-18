@@ -9,6 +9,9 @@ import { DevicesListComponent } from './components/devices-list/devices-list.com
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { AdminhomeComponent } from './components/adminhome/adminhome.component';
 import { SidebarnavComponent } from './components/sidebarnav/sidebarnav.component';
+import { HelloComponent } from './components/hello.component';
+import { SidebarDirective } from './components/sidenav.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,12 +21,16 @@ import { SidebarnavComponent } from './components/sidebarnav/sidebarnav.componen
     DevicesListComponent,
     EmployeeListComponent,
     AdminhomeComponent,
+    HelloComponent,
+    SidebarDirective,
     SidebarnavComponent
   ],
   imports: [
     CommonModule,
     // routing module
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

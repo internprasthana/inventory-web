@@ -1,1 +1,68 @@
-<p>add-devices works!</p>
+<app-sidebarnav></app-sidebarnav>
+
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Add Devices</h4>
+                    <!-- form -->
+                    <form [formGroup]="addDevicesForm">
+                        <div>
+                            <label>Name :</label>
+                            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+                            <div *ngIf="f.name.touched && f.name.invalid">
+                                <div class="text-error" *ngIf="f.name.errors.required">Name is Required</div>
+                            </div>
+                        </div><br />
+                        <div>
+                            <label>Assigned To :</label>
+                            <input type="text" class="form-control" formControlName="assignedTo"
+                                placeholder="Enter Assigned To">
+                            <div *ngIf="f.assignedTo.touched && f.assignedTo.invalid">
+                                <div class="text-error" *ngIf="f.assignedTo.errors.required">Assigned To is Required
+                                </div>
+                            </div>
+                        </div><br />
+
+                        <div>
+                            <label>Device Type :</label>
+                            <input type="text" class="form-control" formControlName="deviceType"
+                                placeholder="Enter Device Type">
+                            <div *ngIf="f.deviceType.touched && f.deviceType.invalid">
+                                <div class="text-error" *ngIf="f.deviceType.errors.required">Device Type is Required
+                                </div>
+                            </div>
+                        </div><br />
+                        <div>
+                            <label>OS :</label>
+                            <input type="text" class="form-control" formControlName="os" placeholder="Enter OS">
+                            <div *ngIf="f.os.touched && f.os.invalid">
+                                <div class="text-error" *ngIf="f.os.errors.required">OS is Required
+                                </div>
+
+                            </div>
+                        </div><br />
+                        <div>
+                            <label>Service Tag :</label>
+                            <input type="text" class="form-control" formControlName="serviceTag"
+                                placeholder="Enter Service Tag">
+                            <div *ngIf="f.serviceTag.touched && f.serviceTag.invalid">
+                                <div class="text-error" *ngIf="f.serviceTag.errors.required">Service Tag is Required
+                                </div>
+
+                            </div>
+                        </div><br />
+                        <div style="float: right;">
+                            <button (click)="submit()" class="btn btn-primary submit">Submit</button>
+                            <button (click)="cancel()" class="btn btn-secondary">Cancel</button>
+                        </div>
+
+                        <!-- <p class="text-error">{{error}}</p> -->
+                    </form>
+                    <!-- end form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
