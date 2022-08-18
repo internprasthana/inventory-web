@@ -11,5 +11,6 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  student=[{name:'Nuthan',age:20,id:2},{name:'Navya',age:21,id:3}]
 
 }
