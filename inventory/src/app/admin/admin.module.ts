@@ -12,7 +12,8 @@ import { SidebarnavComponent } from './components/sidebarnav/sidebarnav.componen
 import { HelloComponent } from './components/hello.component';
 import { SidebarDirective } from './components/sidenav.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     // routing module
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgSelectModule
   ]
 })
 export class AdminModule { }

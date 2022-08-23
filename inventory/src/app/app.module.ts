@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 // routing module
 import { AppRoutingModule } from './app-routing.module';
 // module
+import { HttpClientModule } from '@angular/common/http';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     //user defined modules
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

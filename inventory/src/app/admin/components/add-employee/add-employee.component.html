@@ -1,4 +1,4 @@
-<!-- <app-sidebarnav></app-sidebarnav> -->
+
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-12 table">
@@ -25,10 +25,10 @@
                         </div><br />
                         <div>
                             <label>Phone Number :</label>
-                            <input type="text" class="form-control" formControlName="phonenumber"
+                            <input type="text" class="form-control" formControlName="phone_number"
                                 placeholder="Enter Phone Number">
-                            <div *ngIf="f.phonenumber.touched && f.phonenumber.invalid">
-                                <div class="text-error" *ngIf="f.phonenumber.errors.required">Phone Number is Required
+                            <div *ngIf="f.phone_number.touched && f.phone_number.invalid">
+                                <div class="text-error" *ngIf="f.phone_number.errors.required">Phone Number is Required
                                 </div>
 
                             </div>
@@ -42,40 +42,37 @@
                                 </div>
                             </div>
                         </div><br />
+                        <div>
+                            <label>Role :</label>
+                            <select multiple class="form-control" formControlName="roles">
+                                <!-- <option>Select Role</option> -->
+                                <option>Admin</option>
+                                <option>Employee</option>
+                            </select>
+                            <div *ngIf="f.roles.touched && f.roles.invalid">
+                                <div class="text-error" *ngIf="f.roles.errors.required">Role is Required
+                                </div>
+                            </div>
+                        </div><br />
 
                         <div>
                             <label>EMP ID :</label>
-                            <input type="text" class="form-control" formControlName="empId" placeholder="Enter EMP ID">
-                            <div *ngIf="f.empId.touched && f.empId.invalid">
-                                <div class="text-error" *ngIf="f.empId.errors.required">EMP ID is Required
-                                </div>
+                            <input type="text" class="form-control" formControlName="emp_id" placeholder="Enter EMP ID">
 
-                            </div>
                         </div><br />
-                        <div>
-                            <label>Role :</label>
-                            <input type="text" class="form-control" formControlName="role" placeholder="Enter Role">
-                            <div *ngIf="f.role.touched && f.role.invalid">
-                                <div class="text-error" *ngIf="f.role.errors.required">Role is Required
-                                </div>
-
-                            </div>
-                        </div><br />
+                     
                         <div>
                             <label>Devices :</label>
                             <input type="text" class="form-control" formControlName="devices"
                                 placeholder="Enter Devices">
-                            <div *ngIf="f.devices.touched && f.devices.invalid">
-                                <div class="text-error" *ngIf="f.devices.errors.required">Devices is Required
-                                </div>
-                            </div>
+
                         </div><br />
                         <div style="float: right;">
                             <button (click)="submit()" class="btn btn-primary submit">Submit</button>
                             <button (click)="cancel()" class="btn btn-secondary">Cancel</button>
                         </div>
 
-                        <!-- <p class="text-error">{{error}}</p> -->
+                        <p class="text-error">{{error}}</p>
                     </form>
                     <!-- end form -->
                 </div>
@@ -84,4 +81,4 @@
     </div>
 </div>
 
-<app-sidebarnav></app-sidebarnav> 
+<app-sidebarnav></app-sidebarnav>
