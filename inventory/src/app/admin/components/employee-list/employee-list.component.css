@@ -178,3 +178,16 @@ body {
     width: 110px;
     background: blue;
 }
+
+/*favicon*/
+.favicon {
+    cursor: pointer
+}
+
+.edit:hover {
+    transform: scale(1.5);
+}
+
+.trash:hover {
+    transform: scale(1.5);
+}
