@@ -115,15 +115,16 @@
 
 .line {
     height: 1px;
+    width:50%;
     border: none;
     color: #333;
     background-color: #333;
 }
 
 .aboutList {
-    margin-left: 370px;
+    margin-left: 0px;
 }
 
 .AboutHeader {
-    padding-top: 110px;
+    padding-top: 0px;
 }
