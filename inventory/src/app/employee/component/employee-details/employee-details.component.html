@@ -32,9 +32,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="profile-head">
+                <div class="profile-head"  *ngFor="let items of data ">
                     <h5>
-                        Kshiti Ghelani
+                        {{items.name}}
                     </h5>
                     <h6>
                         Web Developer and Designer

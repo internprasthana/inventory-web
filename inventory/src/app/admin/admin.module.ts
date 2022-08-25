@@ -12,6 +12,10 @@ import { SidebarnavComponent } from './components/sidebarnav/sidebarnav.componen
 import { HelloComponent } from './components/hello.component';
 import { SidebarDirective } from './components/sidenav.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
+import { EditDevicesComponent } from './components/edit-devices/edit-devices.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 @NgModule({
@@ -23,14 +27,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminhomeComponent,
     HelloComponent,
     SidebarDirective,
-    SidebarnavComponent
+    SidebarnavComponent,
+    EditEmployeeComponent,
+    EditDevicesComponent
   ],
   imports: [
     CommonModule,
     // routing module
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    //  ActivatedRoute
   ]
 })
 export class AdminModule { }

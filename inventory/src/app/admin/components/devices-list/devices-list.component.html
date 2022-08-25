@@ -36,7 +36,7 @@
         <!--Device Information-->
         <div class="padding">
             <div class="row ml-5 container d-flex justify-content-start">
-                <div class=" col-xl-4 col-md-12">
+                <div class=" col-xl-4 col-md-12" *ngFor="let items of data">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
                             <div class="col-sm-4 bg-c-lite-green user-profile">
@@ -45,35 +45,39 @@
                                         <img src="https://thumbs.dreamstime.com/b/laptop-icon-laptop-icon-white-background-133509399.jpg"
                                             class="img-radius" alt="User-Profile-Image">
                                     </div>
-                                    <h6 class="f-w-600 headers">Lenovo</h6>
+                                    <h6 class="f-w-600 headers">{{items.name}}</h6>
 
                                     <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                 </div>
                             </div>
                             <div class="col-sm-8">
                                 <div class="card-block">
-                                    <h6 class="ml-2 m-b-20 p-b-5 b-b-default f-w-600">Information <i
-                                            class="fa fa-edit edit"></i> <i class="ml-2 fa fa-trash-o"></i></h6>
+                                    <h6 class="ml-2 m-b-20 p-b-5 b-b-default f-w-600">Information <a routerLink="/devices-edit/{{items.id}}"
+                                            ><i class="fa fa-edit edit" ></i></a>
+                                        <i class="ml-2 fa fa-trash-o" (click)="delete(items.id)"></i></h6>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600 headers">Device Type</p>
-                                            <h6 class="text-muted f-w-400 text">Laptop</h6>
+                                            <h6 class="text-muted f-w-400 text">{{items.device_type}}</h6>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600 headers">OS</p>
-                                            <h6 class="text-muted f-w-400 text">52255</h6>
+                                            <h6 class="text-muted f-w-400 text">{{items.os}}</h6>
                                         </div><br><br>
                                         <div class="col-sm-12">
                                             <p class="m-b-10 f-w-600 headers">Service Tag</p>
-                                            <h6 class="text-muted f-w-400 text">TH52JB</h6>
+                                            <h6 class="text-muted f-w-400 text">{{items.service_tag}}</h6>
                                         </div>
                                     </div>
                                     <!--Devices Assigned-->
                                     <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600 ">Devices Assigned</h6>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <p class="m-b-10 f-w-600 headers">Assigned to</p>
-                                            <h6 class="text-muted f-w-400 text">123</h6>
+                                            <div class="m-b-10 f-w-600 headers pointer">Assigned to
+                                                <i class="fa fa-plus plus color-blue pointer" *ngIf="!items.employee?.name"
+                                                    (click)="onClick(items)"></i>
+                                            </div>
+                                            <h6 class="text-muted f-w-400 text">{{items.employee?.name}}</h6>
                                         </div>
                                     </div>
                                 </div>

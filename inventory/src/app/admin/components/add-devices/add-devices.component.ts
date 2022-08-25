@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-devices',
@@ -9,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AddDevicesComponent implements OnInit {
   addDevicesForm:any; // formgroup name
 
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder,private router:ActivatedRoute) { 
     this.addDevicesForm = this.fb.group({
       name: ['', Validators.required],
       assignedTo: ['', Validators.required],
@@ -21,6 +22,7 @@ export class AddDevicesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.router.snapshot.params);
   }
 
   get f(){
