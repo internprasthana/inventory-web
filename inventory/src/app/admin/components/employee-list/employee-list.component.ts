@@ -19,7 +19,13 @@ export class EmployeeListComponent implements OnInit {
       console.log(res);
       this.employee = res;
 
-    })
+    });
+  }
+  delete(id:any) {
+    this.employeeService.deleteEmployee(id).subscribe((res) => {
+      console.log(res);
+      this.employeeData();
+    });
   }
 
   devices() {

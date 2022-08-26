@@ -14,6 +14,8 @@ import { SidebarDirective } from './components/sidenav.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EditDevicesComponent } from './components/edit-devices/edit-devices.component';
+import { EditEmployeesComponent } from './components/edit-employees/edit-employees.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AdminhomeComponent,
     HelloComponent,
     SidebarDirective,
-    SidebarnavComponent
+    SidebarnavComponent,
+    EditDevicesComponent,
+    EditEmployeesComponent
   ],
   imports: [
     CommonModule,
