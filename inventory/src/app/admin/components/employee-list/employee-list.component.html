@@ -25,7 +25,7 @@
                 <div class="col-md-8">
                     <div class="search">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control" placeholder="Search Employee...">
+                        <input type="text" class="form-control" (keyup)="filterData()" [(ngModel)]="searchKey"  placeholder="Search Employee...">
                         <form>
                             <button class="btn btn-primary">Search</button>
                         </form>
@@ -36,7 +36,7 @@
         <!--Employee Card-->
         <div class="padding">
             <div class="row ml-5 container d-flex justify-content-start">
-                <div class=" col-xl-4 col-md-12" *ngFor="let items of employee">
+                <div class=" col-xl-4 col-md-12" *ngFor="let items of tempData ">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
                             <div class="col-sm-4 bg-c-lite-green user-profile">

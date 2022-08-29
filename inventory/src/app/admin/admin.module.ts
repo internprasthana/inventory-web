@@ -9,7 +9,7 @@ import { DevicesListComponent } from './components/devices-list/devices-list.com
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { AdminhomeComponent } from './components/adminhome/adminhome.component';
 import { SidebarnavComponent } from './components/sidebarnav/sidebarnav.component';
-import { HelloComponent } from './components/hello.component';
+
 import { SidebarDirective } from './components/sidenav.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +22,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     DevicesListComponent,
     EmployeeListComponent,
     AdminhomeComponent,
-    HelloComponent,
+   
     SidebarDirective,
     SidebarnavComponent
   ],

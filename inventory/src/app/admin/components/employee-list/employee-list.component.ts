@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
@@ -7,7 +9,12 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  employee: any;
+  searchcontrol!: FormControl;
+  employee=[] as any[];
+  tempData=[] as any[];
+  filteredresult$!: Observable<string[]>;
+  searchKey="";
+
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
@@ -18,12 +25,21 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.getEmployee().subscribe((res: any) => {
       console.log(res);
       this.employee = res;
+      this.tempData=this.employee;
 
     })
   }
 
   devices() {
 
+  }
+
+  filterData()
+  {
+    this.tempData=this.employee.filter((ele)=>{
+      if(ele.name.indexOf(this.searchKey)!=-1)
+      return ele;
+    });
   }
 
 }

@@ -2,8 +2,9 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// const newLocal = 'https://6f1a-183-82-122-219.in.ngrok.io';
 export const environment = {
-  base_url:'https://0002-183-82-122-219.in.ngrok.io',
+  base_url:'https://4d9b-183-82-122-219.in.ngrok.io/',
   production: false
 };
 
