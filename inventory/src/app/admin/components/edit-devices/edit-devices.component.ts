@@ -11,6 +11,7 @@ import { DevicesService } from '../../services/devices.service';
 })
 export class EditDevicesComponent implements OnInit {
   addDeviceForm: any; // formgroup name
+  failuremsg:boolean=false;
   constructor(private devices:DevicesService,private router:ActivatedRoute,private route:Router) { 
     this.addDeviceForm = new FormGroup({
       name:new FormControl(''),
@@ -43,7 +44,11 @@ export class EditDevicesComponent implements OnInit {
   updateDevice(){
     alert('You want to make changes');
     this.devices.updateDevice(this.router.snapshot.params['id'],this.addDeviceForm.value).subscribe(results=>{
+      console.log("hello",this.addDeviceForm.value)
       this.route.navigateByUrl('/devices-list')
+    },(error)=>{
+      console.log('response is not valid');
+      this.failuremsg=true;
     })
     
   }
@@ -54,6 +59,7 @@ export class EditDevicesComponent implements OnInit {
   }
   
   cancel() {
+    alert('You want to Cancel')
     this.route.navigateByUrl('/devices-list')
   }
  

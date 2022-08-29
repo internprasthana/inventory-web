@@ -18,16 +18,17 @@
 
 <body>
 
-    <div class="page-container" id="page-content">
+
+    <div class="page-container " id="page-content">
         <!--Search Bar-->
-        <div class="container">
-            <div class="row height d-flex justify-content-center align-items-center">
+        <div class="container ">
+            <div class="row height d-flex justify-content-center align-items-center ">
                 <div class="col-md-8">
                     <div class="search">
                         <i class="fa fa-search"></i>
                         <input type="text" class="form-control" placeholder="Search Employee...">
-                        <form>
-                            <button class="btn btn-primary">Search</button>
+                        <form >
+                            <button class="btn btn-primary" >Search</button>
                         </form>
                     </div>
                 </div>
@@ -35,7 +36,7 @@
         </div>
         <!--Employee Card-->
         <div class="padding">
-            <div class="row ml-5 container d-flex justify-content-start">
+            <div class="row ml-5 container d-flex justify-content-center">
                 <div class=" col-xl-4 col-md-12" *ngFor="let items of employee">
                     <div class="card user-card-full">
                         <div class="row m-l-0 m-r-0">
@@ -70,12 +71,10 @@
                                     </div>
                                     <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600 ">Devices Assigned</h6>
                                     <div class="row">
-                                        <div class="col-sm-12">
-                                            <p class="m-b-10 f-w-600 headers">Device Name</p>
-                                            <a routerLink="/admin/devices-list" (click)="devices()"
-                                                style="text-decoration: none;">No device
-                                                Assigned</a>
-                                            <h6 class="text-muted f-w-400 text">{{items.device_type}}</h6>
+                                         <div class="col-sm-12 d-flex flex-row" >
+                                        <div *ngFor="let i of items.devices">                                          
+                                            <p class="text mr-2" style="font-size:10px;" routerLink="/admin/devices-list">{{i.name}}</p>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>

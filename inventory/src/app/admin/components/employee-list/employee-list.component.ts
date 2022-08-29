@@ -8,6 +8,7 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   employee: any;
+  
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
@@ -25,11 +26,10 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.deleteEmployee(id).subscribe((res) => {
       console.log(res);
       this.employeeData();
+    },(error)=>{
+      console.log("invalid response")
     });
   }
 
-  devices() {
-
-  }
-
+ 
 }

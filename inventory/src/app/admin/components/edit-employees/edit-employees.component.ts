@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditEmployeesComponent implements OnInit {
   addEmployeeForm: any;
+  failureMsg:boolean=false;
   constructor(private Employee:EmployeeService,private router:ActivatedRoute,private route:Router,private fb: FormBuilder) { this.addEmployeeForm = new FormGroup({
     name:new FormControl(''),
     email:new FormControl(''),
@@ -30,22 +31,27 @@ export class EditEmployeesComponent implements OnInit {
         email:new FormControl(this.list.email),
         phone_number:new FormControl(this.list.phone_number),
         designation:new FormControl(this.list.designation),
-       
       })
     })
   }
   employeeData() {
     this.Employee.getEmployee().subscribe((res: any) => {
       console.log(res);
+    },(error)=>{
+      console.log('Response error');
+      
     });
   }
   updateemployee(){
     alert('You want to make changes');
     this.Employee.updateEmployee(this.router.snapshot.params['id'],this.addEmployeeForm.value).subscribe(results=>{
       this.route.navigateByUrl('/employee-list')
-       
+      this.employeeData();
+    },(error)=>{
+      console.error("id already used")
+      this.failureMsg=true;
     })
-    this.employeeData();
+    
   }
   cancel() {
     this.route.navigateByUrl("/employee-list")

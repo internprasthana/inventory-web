@@ -52,6 +52,7 @@ export class AddEmployeeComponent implements OnInit {
         })
         .subscribe((response: any) => {
           console.log(response);
+          alert('You succesfully added employee');
           this.router.navigate(['/admin/employee-list']);
         },
 
@@ -61,6 +62,7 @@ export class AddEmployeeComponent implements OnInit {
 
 
   cancel() {
+    alert('You want cancel adding Employee')
     this.router.navigate(['/admin/employee-list']);
   }
 

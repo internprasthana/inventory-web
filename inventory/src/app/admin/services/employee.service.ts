@@ -24,5 +24,6 @@ export class EmployeeService {
   updateEmployee(id:any,data:any){
     return this.http.put(environment.base_url+'/employees'+'/'+id,data)
   }
+  
 
 }

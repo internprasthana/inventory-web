@@ -30,6 +30,7 @@ export class AddDevicesComponent implements OnInit {
   ngOnInit(): void {
 
      }
+     failuremsg:boolean=true;
 
   get f() {
     return this.addDevicesForm.controls;
@@ -51,11 +52,14 @@ export class AddDevicesComponent implements OnInit {
           (response: any) => {
             console.log(response.employee);
             this.router.navigate(['/admin/devices-list']);
+          },(error)=>{
+            this.failuremsg=true;
           });
     }
   }
 
   cancel() {
+    alert('Want to cancel Adding Device')
     this.router.navigate(['/admin/devices-list']);
   }
 
