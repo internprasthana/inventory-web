@@ -18,8 +18,8 @@
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
                                     class="rounded-circle" width="150">
                                 <div class="mt-3">
-                                    <h4>J{{data.name}}</h4>
-                                    <p class="text-secondary mb-1">{{data.designation}}</p>
+                                    <h4>J{{data?.name}}</h4>
+                                    <p class="text-secondary mb-1">{{data?.designation}}</p>
 
                                     <button class="btn btn-primary">Follow</button>
                                     <button class="btn btn-outline-primary">Message</button>
@@ -96,7 +96,7 @@
                                     <h6 class="mb-0 ">Full Name</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    {{data.name}}
+                                    {{data?.name}}
                                 </div>
                             </div>
                             <hr>
@@ -105,7 +105,7 @@
                                     <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    {{data.email}}
+                                    {{data?.email}}
                                 </div>
                             </div>
                             <hr>
@@ -114,7 +114,7 @@
                                     <h6 class="mb-0">Mobile</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    {{data.phone_number}}
+                                    {{data?.phone_number}}
                                 </div>
                             </div>
                             <hr>
@@ -136,7 +136,7 @@
                                 <th scope="col">service tag</th>
                             </tr>
                         </thead>
-                        <tbody *ngFor="let d of data.devices">
+                        <tbody *ngFor="let d of data?.devices">
                             <tr>
                                 <td>{{d.name}}</td>
                                 <td>{{d.device_type}}</td>
