@@ -5,7 +5,7 @@
 export const environment = {
   base_url:'https://4d9b-183-82-122-219.in.ngrok.io',
   production: false
-};
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
