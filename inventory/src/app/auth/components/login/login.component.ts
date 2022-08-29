@@ -1,9 +1,9 @@
-import { Component, getNgModuleById, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { NodeWithI18n } from '@angular/compiler';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,12 +12,10 @@ import { NodeWithI18n } from '@angular/compiler';
 export class LoginComponent implements OnInit {
   loginForm: any;
   data: any;
-  error: any;
-  errorMessage: any;
-  loading: boolean = false;
-  FailureMsg: boolean = false;
-  Username: any;
-  
+  unauthorizedUser: boolean = false;
+  failureMsg: boolean = false;
+
+
   constructor(private route: Router, private http: HttpClient,
     private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -30,9 +28,7 @@ export class LoginComponent implements OnInit {
   get f() {
     return this.loginForm.controls;
   }
-  password() {
-    this.route.navigate(['/auth/forgotpassword'])
-  }
+  
   public inputType: string = 'password';
   showpassword(event: any) {
     if (event.target.checked) {
@@ -43,35 +39,29 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
+  //login
   login(username: any, password: any) {
-    this.loading = false;
-    console.log(username, password)
 
-    this.loginForm.reset();
+    this.loginForm.reset();    //reset login form 
+    
     this.http.get(environment.base_url + '/auth/login/?email=' + username + '&' + 'password=' + password).subscribe((res: any) => {
-     
-      localStorage.setItem('loginData',JSON.stringify({isLoggedIn:true, loginTime: Date.now(), ...res}))
-      this.determineNavigation(res);
+      this.determineNavigation(res);              //login response
     }, (error) => {                              //Error callback
       console.error('invalid user')
-      this.errorMessage = error;
-      this.FailureMsg = true;
-
-  
+      this.failureMsg = true;
     })
   }
 
-  determineNavigation(empData: any) {
-   
+  determineNavigation(empData: any) {     //determine navigation
     if (empData) {
       var empDataObj = empData;
       if (empDataObj.user_roles && empDataObj.user_roles.length > 0) {
-        var roles = empDataObj.user_roles;
+        localStorage.setItem('loginData', JSON.stringify({ isLoggedIn: true, loginTime: Date.now(), ...empDataObj }))
+        var userrRoles = empDataObj.user_roles;
         var isAdmin = false;
-        for (var i = 0; i < roles.length; i++) {
-          if (roles[i].roles) {
-            if (roles[i].roles.toLowerCase() == 'Admin'.toLowerCase()) {
+        for (var i = 0; i < userrRoles.length; i++) {
+          if (userrRoles[i].roles) {
+            if (userrRoles[i].roles.toLowerCase() == 'Admin'.toLowerCase()) {
               isAdmin = true;
               break;
             }
@@ -79,18 +69,19 @@ export class LoginComponent implements OnInit {
           }
         }
         if (isAdmin) {
-          this.route.navigate(['/admin/adminhome'], { queryParams: {id:empDataObj.id} });
-          
+          this.route.navigate(['/admin/adminhome'], { queryParams: { id: empDataObj.id } });
+
         } else {
-          this.route.navigate(['/employee/employee-detail'], { queryParams: {id:empDataObj.id} });
+          this.route.navigate(['/employee/employee-detail'], { queryParams: { id: empDataObj.id } });
         }
       } else {
-   
+        this.unauthorizedUser = true;
         console.log("No Roles Found");
+
       }
     }
     else {
-   
+      this.unauthorizedUser = true;
       console.log('No user found');
     }
   }
