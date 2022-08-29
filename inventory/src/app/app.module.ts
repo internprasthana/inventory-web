@@ -9,9 +9,21 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 
+
+
+
+
+
+
+
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+  
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -21,7 +33,11 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    
+    
+  
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
