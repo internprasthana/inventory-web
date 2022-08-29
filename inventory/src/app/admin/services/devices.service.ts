@@ -16,15 +16,34 @@ export class DevicesService {
   addDevices(elements: any) {
     return this.http.post(environment.base_url + '/devices', elements)
   }
-  deletedevice(id:any){
-   
-    return this.http.delete(environment.base_url+'/devices'+'/'+id)
+  deletedevice(id: any) {
+
+    return this.http.delete(environment.base_url + '/devices' + '/' + id)
   }
-  
-  updateDevice(id:any,data:any){
-    return this.http.put(environment.base_url+'/devices'+'/'+id,data)
+
+  updateDevice(id: any, data: any) {
+    return this.http.put(environment.base_url + '/devices' + '/' + id, data)
   }
-  getcurrentdevices(id:any){
-    return this.http.get(environment.base_url+'/devices'+'/'+id)
+  updateDevices(id: any, data: any) {
+
+
+    debugger
+    let url = environment.base_url + '/devices/' + id;
+
+
+
+    return this.http.put(url, data)
+
+
+  }
+  getcurrentdevices(id: any) {
+    return this.http.get(environment.base_url + '/devices' + '/' + id)
+  }
+  get(id: any) {
+    return this.http.get(environment.base_url + '/employees' + '/' + id);
+  }
+
+  getEmployee() {
+    return this.http.get(environment.base_url + '/employees');
   }
 }

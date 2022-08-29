@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   employee: any;
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.employeeData();
@@ -28,7 +30,11 @@ export class EmployeeListComponent implements OnInit {
     });
   }
 
-  devices() {
+  add(item:any) {
+    console.log("hello");
+    console.log(item.id);
+    
+    this.router.navigate(['/employee/employee-detail'], { queryParams: { id:  item.id } });
 
   }
 

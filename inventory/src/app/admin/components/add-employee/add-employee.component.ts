@@ -12,6 +12,14 @@ import { EmployeeService } from '../../services/employee.service';
 export class AddEmployeeComponent implements OnInit {
   error: any;
   addEmployeeForm: any; // formgroup name
+  roles = [{
+    "id": 0,
+    "role": "Admin"
+  },
+  {
+    "id": 1,
+    "role": "Employee"
+  }]
   constructor(private fb: FormBuilder,
     private router: Router,
     private employeeService: EmployeeService) {

@@ -1,4 +1,3 @@
-
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-12 table">
@@ -44,11 +43,10 @@
                         </div><br />
                         <div>
                             <label>Role :</label>
-                            <select multiple class="form-control" formControlName="roles">
-                                <!-- <option>Select Role</option> -->
-                                <option>Admin</option>
-                                <option>Employee</option>
-                            </select>
+                            <ng-select [items]="roles" [multiple]="true" bindLabel="role" bindValue="id"
+                                formControlName="roles">
+                            </ng-select>
+                            
                             <div *ngIf="f.roles.touched && f.roles.invalid">
                                 <div class="text-error" *ngIf="f.roles.errors.required">Role is Required
                                 </div>
@@ -60,7 +58,7 @@
                             <input type="text" class="form-control" formControlName="emp_id" placeholder="Enter EMP ID">
 
                         </div><br />
-                     
+
                         <div>
                             <label>Devices :</label>
                             <input type="text" class="form-control" formControlName="devices"

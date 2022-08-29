@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EditDevicesComponent } from './components/edit-devices/edit-devices.component';
 import { EditEmployeesComponent } from './components/edit-employees/edit-employees.component';
+import { AssignDevicesComponent } from './components/assign-devices/assign-devices.component';
+import { AssignEmployeesComponent } from './components/assign-employees/assign-employees.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { EditEmployeesComponent } from './components/edit-employees/edit-employe
     SidebarDirective,
     SidebarnavComponent,
     EditDevicesComponent,
-    EditEmployeesComponent
+    EditEmployeesComponent,
+    AssignDevicesComponent,
+    AssignEmployeesComponent
   ],
   imports: [
     CommonModule,

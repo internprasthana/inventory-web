@@ -51,10 +51,11 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="card-block">
-                                    <h6 class="ml-2 m-b-20 p-b-5 b-b-default f-w-600">Information 
+                                    <h6 class="ml-2 m-b-20 p-b-5 b-b-default f-w-600">Information
                                         <a routerLink="/devices-edit/{{items.id}}">
-                                            <i class="fa fa-edit edit"></i></a> 
-                                            <i class="ml-2 fa fa-trash-o" (click)="delete(items.id)"></i></h6>
+                                            <i class="fa fa-edit edit"></i></a>
+                                        <i class="ml-2 fa fa-trash-o" (click)="delete(items.id)"></i>
+                                    </h6>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600 headers">Device Type</p>
@@ -74,8 +75,9 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="m-b-10 f-w-600 headers pointer">Assigned to
-                                                <i class="fa fa-plus plus color-blue pointer" *ngIf="!items.employee?.name"
-                                                    ></i>
+                                                <a routerLink="/assign-device/{{items.id}}">
+                                                <i class="fa fa-plus plus color-blue pointer"
+                                                    *ngIf="!items.employee?.name"></i></a>
                                             </div>
                                             <h6 class="text-muted f-w-400 text">{{items.employee?.name}}</h6>
                                         </div>
