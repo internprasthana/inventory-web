@@ -18,10 +18,14 @@
 </head>
 
 <body>
+    <div class="p-5">
+        <button class="btn btn-primary" (click)="LogoutUser()">Logout</button>
+    </div>
     <div class="container emp-profile">
         <!--Logo,name,role-->
         <div class="row">
             <div class="col-md-4">
+                
                 <div class="profile-img">
                     <img src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
                         alt="image" />
@@ -34,37 +38,31 @@
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5>
-                        Kshiti Ghelani
+                        {{data?.name}}
                     </h5>
                     <h6>
-                        Web Developer and Designer
+                        {{data?.designation}}
                     </h6>
-                    <h3 class="AboutHeader">
-                        About
-                    </h3>
                 </div>
-                <hr class="line">
+                
             </div>
         </div>
-        <!--About Information-->
+        <!-- About Information -->
+        <h3 class="AboutHeader">
+            About
+        </h3>
+        <hr class="line">
         <div class="row">
             <div class="aboutList col-md-6">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>User Id</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>Kshiti123</p>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Name</label>
                             </div>
                             <div class="col-md-6">
-                                <p>Kshiti Ghelani</p>
+                                <p>{{data?.name}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -72,7 +70,7 @@
                                 <label>Email</label>
                             </div>
                             <div class="col-md-6">
-                                <p>kshitighelani@gmail.com</p>
+                                <p>{{data?.email}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -80,52 +78,37 @@
                                 <label>Phone</label>
                             </div>
                             <div class="col-md-6">
-                                <p>123 456 7890</p>
+                                <p>{{data?.phone_number}}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Profession</label>
+                                <label>Designation</label>
                             </div>
                             <div class="col-md-6">
-                                <p>Web Developer and Designer</p>
+                                <p>{{data?.designation}}</p>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <!--Devices Assigned-->
-                <div>
-                    <h3>Devices Assigned</h3>
-                    <hr class="line">
-                </div>
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">name</th>
+                            <th scope="col">device type</th>
+                            <th scope="col">os</th>
+                            <th scope="col">service tag</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let d of data?.devices">
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                            <td>{{d.name}}</td>
+                            <td>{{d.device_type}}</td>
+                            <td>{{d.os}}</td>
+                            <td>{{d.service_tag}}</td>
                         </tr>
                     </tbody>
                 </table>

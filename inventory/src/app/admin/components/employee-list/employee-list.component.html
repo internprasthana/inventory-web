@@ -52,8 +52,8 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="card-block">
-                                    <h6 class="ml-2 m-b-20 p-b-5 b-b-default f-w-600">Information <i
-                                            class="fa fa-edit edit"></i> <i class="ml-2 fa fa-trash-o"></i></h6>
+                                    <h6 class="ml-2 m-b-20 p-b-5 b-b-default f-w-600">Information <a routerLink="/edit-employee/{{items.id}}" ><i
+                                            class="fa fa-edit edit"></i></a> <i class="ml-2 fa fa-trash-o" (click)="delete(items['id'])"></i></h6>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <p class="m-b-10 f-w-600 headers">Emp Id</p>

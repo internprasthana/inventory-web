@@ -29,6 +29,13 @@ export class DevicesListComponent implements OnInit {
       this.tempData=this.devicesList;
     })
   }
+  delete(id: any) {
+    console.log();
+    this.deviceservices.deletedevice(id).subscribe((res) => {
+      console.log(res);
+      this.getData();
+    });
+  }
 
   assign(){
     
