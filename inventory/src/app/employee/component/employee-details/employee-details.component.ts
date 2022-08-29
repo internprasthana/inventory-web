@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 
@@ -12,13 +12,11 @@ import { environment } from 'src/environments/environment';
 export class EmployeeDetailsComponent implements OnInit {
   data: any;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute,private router: Router, private http: HttpClient) { }
   ngOnInit(): void {
-    console.log(this.route.queryParams)
     this.route.queryParams
       .subscribe((params) => {
-        console.log('Params');
-        console.log(params);
+        // console.log(params);
            
         if(params['id']){
      
@@ -30,4 +28,9 @@ export class EmployeeDetailsComponent implements OnInit {
       });
   }
 
+  //logout
+  LogoutUser(){       
+    localStorage.clear();
+    this.router.navigateByUrl("auth/login")
+  }
 }

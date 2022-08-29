@@ -22,6 +22,7 @@ export class DevicesService {
   }
   
   updateDevice(id:any,data:any){
+    console.log("data",data);
     return this.http.put(environment.base_url+'/devices'+'/'+id,data)
   }
   getcurrentdevices(id:any){
