@@ -43,6 +43,7 @@ export class EditDevicesComponent implements OnInit {
   updateDevice(){
     alert('You want to make changes');
     this.devices.updateDevice(this.router.snapshot.params['id'],this.addDeviceForm.value).subscribe(results=>{
+      console.log("values",this.addDeviceForm.value)
       this.route.navigateByUrl('/devices-list')
     })
     

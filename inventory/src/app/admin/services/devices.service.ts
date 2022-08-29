@@ -20,9 +20,11 @@ export class DevicesService {
 
     return this.http.delete(environment.base_url + '/devices' + '/' + id)
   }
+  
+  updateDevice(id:any,data:any){
+    console.log("data",data);
+    return this.http.put(environment.base_url+'/devices'+'/'+id,data)
 
-  updateDevice(id: any, data: any) {
-    return this.http.put(environment.base_url + '/devices' + '/' + id, data)
   }
   updateDevices(id: any, data: any) {
 
