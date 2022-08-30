@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { DevicesService } from '../../services/devices.service';
 
 @Component({
@@ -8,6 +10,9 @@ import { DevicesService } from '../../services/devices.service';
 })
 export class DevicesListComponent implements OnInit {
   devicesList:any;
+  searchcontrol!: FormControl
+  filteredresult$!: Observable<string[]>;
+  searchKey="";
   constructor(private deviceservices:DevicesService) { }
 
   ngOnInit(): void {
@@ -30,6 +35,13 @@ export class DevicesListComponent implements OnInit {
 
   assign(){
     
+  }
+  filterData()
+  {
+   this.devicesList=this.devicesList.filter((ele:any)=>{
+      if(ele.name.indexOf(this.searchKey)!=-1)
+      return ele;
+    });
   }
 
 }
