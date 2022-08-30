@@ -13,16 +13,8 @@
                                 <div class="text-error" *ngIf="f.name.errors.required">Name is Required</div>
                             </div>
                         </div><br />
-                        <div>
-                            <label>Assigned To :</label>
-                            <input type="text" class="form-control" formControlName="employee_id"
-                                placeholder="Enter Name">
-                            <div *ngIf="f.employee_id.touched && f.employee_id.invalid">
-                                <div class="text-error" *ngIf="f.employee_id.errors.required">Assigned To Required
-                                </div>
-                            </div>
-                        </div><br />
-                        <div>
+                    
+                        <!-- <div>
                             <label>Device Type :</label>
                             <select class="form-control" formControlName="device_type" placeholer="Select Devices Type">
 
@@ -30,6 +22,17 @@
                                 <option>Bag</option>
                                 <option>Charger</option>
                             </select>
+
+                            <div *ngIf="f.device_type.touched && f.device_type.invalid">
+                                <div class="text-error" *ngIf="f.device_type.errors.required">Device Type is Required
+                                </div>
+                            </div>
+                        </div><br /> -->
+                        <div>
+                            <label>Device Type :</label>
+                            <ng-select [items]="device_type" [multiple]="true" bindLabel="device-type" bindValue="id"
+                                formControlName="device_type" placeholder="Select Devices Type">
+                            </ng-select>
 
                             <div *ngIf="f.device_type.touched && f.device_type.invalid">
                                 <div class="text-error" *ngIf="f.device_type.errors.required">Device Type is Required
