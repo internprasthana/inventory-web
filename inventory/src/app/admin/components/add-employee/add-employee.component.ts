@@ -30,7 +30,7 @@ export class AddEmployeeComponent implements OnInit {
       designation: ['', [Validators.required]],
       phone_number: ['', Validators.required],
       emp_id: [''],
-      roles: ['', Validators.required],
+      roles: [null, Validators.required],
       devices: ['']
     })
   }

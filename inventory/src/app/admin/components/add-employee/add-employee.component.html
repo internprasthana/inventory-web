@@ -44,7 +44,7 @@
                         <div>
                             <label>Role :</label>
                             <ng-select [items]="roles" [multiple]="true" bindLabel="role" bindValue="id"
-                                formControlName="roles">
+                                formControlName="roles" placeholder="Select Role">
                             </ng-select>
                             
                             <div *ngIf="f.roles.touched && f.roles.invalid">

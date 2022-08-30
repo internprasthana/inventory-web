@@ -13,13 +13,24 @@ export class AddDevicesComponent implements OnInit {
   addDevicesForm: any; // formgroup name
   employeeList: any;
   error:any;
+  device_type = [{
+    "id": 0,
+    "device-type": "Laptop"
+  },
+  {
+    "id": 1,
+    "device-type": "Bag"
+  },
+{
+  "id":2,
+   "device-type": "Charger"
+}]
   constructor(private fb: FormBuilder,
     private router: Router,
     private deviceService: DevicesService,
     private employeeService: EmployeeService) {
     this.addDevicesForm = this.fb.group({
       name: ['', Validators.required],
-      employee_id: [''],
       device_type: ['', [Validators.required]],
       os: [''],
       service_tag: ['', Validators.required],
@@ -41,11 +52,10 @@ export class AddDevicesComponent implements OnInit {
       console.log("he", this.employeeList);
       this.deviceService.addDevices({
         name: this.addDevicesForm.value.name,
-        // employee: this.addDevicesForm.value.employee,
         device_type: this.addDevicesForm.value.device_type,
         os: this.addDevicesForm.value.os,
         service_tag: this.addDevicesForm.value.service_tag,
-        // devices: this.addDevicesForm.value.devices,
+
       })
         .subscribe(
           (response: any) => {
